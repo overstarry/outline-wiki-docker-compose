@@ -67,7 +67,7 @@ function create_env_files {
     HOST=${HOST:-localhost}
 
     read -p "Enter http port number [80]: " HTTP_PORT
-    HTTP_PORT=${HTTP_PORT:-80}
+    HTTP_PORT=${HTTP_PORT:-3000}
 
     if [ $HTTP_PORT == 80 ]
     then

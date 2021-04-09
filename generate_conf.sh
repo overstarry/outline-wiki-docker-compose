@@ -76,7 +76,7 @@ function create_env_files {
         URL="http://${HOST}:${HTTP_PORT}"
     fi
 
-    sed "s|8888:80|${HTTP_PORT}:80|" -i docker-compose.yml
+    sed "s|8888:80|${HTTP_PORT}:3000|" -i docker-compose.yml
 
     # TODO: Allow configuration of portnumber
     read -p "Enter bucket name to store images [outline-bucket]: " BUCKET_NAME
@@ -109,8 +109,8 @@ function create_env_files {
     env_add PGSSLMODE disable env.outline
 
     # Setup datastore
-    sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/http.conf.disabled
-    sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/https.conf.disabled
+    # sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/http.conf.disabled
+    # sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/https.conf.disabled
     MINIO_ACCESS_KEY=`openssl rand -hex 8`
     MINIO_SECRET_KEY=`openssl rand -hex 32`
 

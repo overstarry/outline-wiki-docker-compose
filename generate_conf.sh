@@ -66,17 +66,17 @@ function create_env_files {
     read -p "Enter hostname [localhost]: " HOST
     HOST=${HOST:-localhost}
 
-    read -p "Enter http port number [80]: " HTTP_PORT
-    HTTP_PORT=${HTTP_PORT:-80}
+    # read -p "Enter http port number [80]: " HTTP_PORT
+    # HTTP_PORT=${HTTP_PORT:-80}
 
-    if [ $HTTP_PORT == 80 ]
-    then
-        URL="http://${HOST}"
-    else
-        URL="http://${HOST}:${HTTP_PORT}"
-    fi
+    # if [ $HTTP_PORT == 80 ]
+    # then
+    #     URL="http://${HOST}"
+    # else
+    #     URL="http://${HOST}:${HTTP_PORT}"
+    # fi
 
-    sed "s|8888:80|${HTTP_PORT}:3000|" -i docker-compose.yml
+    # sed "s|8888:80|${HTTP_PORT}:3000|" -i docker-compose.yml
 
     # TODO: Allow configuration of portnumber
     read -p "Enter bucket name to store images [outline-bucket]: " BUCKET_NAME

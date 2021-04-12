@@ -90,7 +90,7 @@ function create_env_files {
 
     env_replace URL $URL env.outline
     env_add HOST $HOST env.outline
-    env_add HTTP_PORT $HTTP_PORT env.outline
+    env_add HTTP_PORT '80' env.outline
 
     SECRET_KEY=`openssl rand -hex 32`
     UTILS_SECRET=`openssl rand -hex 32`

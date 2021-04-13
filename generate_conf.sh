@@ -108,9 +108,9 @@ function create_env_files {
     # Disable SSL for PostgreSQL: https://github.com/outline/outline/issues/1501
     env_add PGSSLMODE disable env.outline
 
-    # Setup datastore
-    sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/http.conf.disabled
-    sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/https.conf.disabled
+    # # Setup datastore
+    # sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/http.conf.disabled
+    # sed "s|outline-bucket|${BUCKET_NAME}|" -i data/nginx/https.conf.disabled
     MINIO_ACCESS_KEY=`openssl rand -hex 8`
     MINIO_SECRET_KEY=`openssl rand -hex 32`
 
@@ -154,7 +154,7 @@ function generate_starter_https_conf {
     env_replace FORCE_HTTPS 'true' env.outline
     env_add HTTPS_PORT $HTTPS_PORT env.outline
     env_replace URL $URL env.outline
-    env_replace AWS_S3_UPLOAD_BUCKET_URL $URL env.outline
+    env_replace AWS_S3_UPLOAD_BUCKET_URL ${URL}:9000 env.outline
 }
 
 function delete_data {

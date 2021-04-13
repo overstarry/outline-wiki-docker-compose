@@ -122,7 +122,7 @@ function create_env_files {
     env_replace AWS_ACCESS_KEY_ID $MINIO_ACCESS_KEY env.outline
     env_replace AWS_SECRET_ACCESS_KEY $MINIO_SECRET_KEY env.outline
     env_replace AWS_S3_UPLOAD_BUCKET_NAME $BUCKET_NAME env.outline
-    env_replace AWS_S3_UPLOAD_BUCKET_URL $URL env.outline
+    env_replace AWS_S3_UPLOAD_BUCKET_URL ${URL}:9000 env.outline
 }
 
 function generate_starter_https_conf {
